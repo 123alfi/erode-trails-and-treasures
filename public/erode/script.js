@@ -232,7 +232,7 @@ const destinations = [
     "tagline": "In the heart of old Erode",
     "note": "Look for the Erode Fort temple when navigating, not Chennai’s similarly named temple.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/e48e5674-d87a-45f7-8384-d2ea5b52888f/erode-aarudra.jpg",
+    "image": "/__l5e/assets-v1/1c6cd5b7-e29b-4b18-9943-c9236dbde240/erode-aarudra-gopuram.jpg",
     "mapQuery": "Aarudra Kabaaleeswarar Temple, Fort area, Erode, Tamil Nadu, India"
   },
   {
