@@ -83,7 +83,7 @@ const destinations = [
     "tagline": "A quieter escape",
     "note": "Visitor access is subject to local restrictions. Keep away from forest areas and wildlife.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "",
+    "image": "/__l5e/assets-v1/d55941c2-2b02-496b-9b21-6b26168d85a9/erode-varattupallam.jpg",
     "mapQuery": "Varattupallam Dam, Near Anthiyur, Bargur foothills, Tamil Nadu, India"
   },
   {
@@ -95,11 +95,12 @@ const destinations = [
     "tagline": "Hill-framed waters",
     "note": "Check access locally. Do not swim or enter restricted water-management areas.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "",
+    "image": "/__l5e/assets-v1/4151ca97-179d-4ec2-b5a4-bab9ef5b865a/erode-kunderipallam.jpg",
     "mapQuery": "Kunderipallam Dam, Near Kongarpalayam, Gobichettipalayam region, Tamil Nadu, India"
   },
   {
     "id": "sathyamangalam",
+    "photoAlt": "Dhimbam hills in the Sathyamangalam region",
     "name": "Sathyamangalam Tiger Reserve",
     "category": "Nature & Wildlife",
     "location": "Sathyamangalam region",
@@ -107,7 +108,7 @@ const destinations = [
     "tagline": "Wild at heart",
     "note": "Only authorised forest visits are permitted. Check current arrangements with the Forest Department; sightings are never guaranteed.",
     "source": "https://erode.nic.in/eco-tourism/",
-    "image": "",
+    "image": "/__l5e/assets-v1/31732357-6025-43b7-8d35-e3a6d52e3b82/erode-sathyamangalam.jpg",
     "mapQuery": "Sathyamangalam Tiger Reserve, Sathyamangalam region, Tamil Nadu, India"
   },
   {
@@ -155,7 +156,7 @@ const destinations = [
     "tagline": "Stories of Kongu Nadu",
     "note": "Confirm the current museum location, opening days and visitor arrangements before travelling.",
     "source": "https://erode.nic.in/heritage-tourism/",
-    "image": "",
+    "image": "/__l5e/assets-v1/ceb5b612-6622-4f11-8088-a31e747e241e/erode-museum.jpg",
     "mapQuery": "Government Museum Erode, Erode city, Tamil Nadu, India"
   },
   {
@@ -167,7 +168,7 @@ const destinations = [
     "tagline": "A reformer’s legacy",
     "note": "Confirm visiting hours locally; photography inside may be restricted.",
     "source": "https://erode.nic.in/heritage-tourism/",
-    "image": "",
+    "image": "/__l5e/assets-v1/2df54ca0-9269-4de0-a1e7-04ca089ad115/erode-periyar.jpg",
     "mapQuery": "Periyar Memorial House, Periyar Street, Erode, Tamil Nadu, India"
   },
   {
@@ -184,6 +185,8 @@ const destinations = [
   },
   {
     "id": "voc",
+    "photoSource": "https://erodeinfo.com/erode-photos/erode-voc-park-photos.htm",
+    "photoCredit": "Erode Info",
     "name": "VOC Park",
     "category": "Leisure & Parks",
     "location": "Erode city",
@@ -191,7 +194,7 @@ const destinations = [
     "tagline": "A city pause",
     "note": "Facilities and accessible areas can change. Confirm current park access locally.",
     "source": "https://erode.nic.in/tourism/places-of-interest/",
-    "image": "",
+    "image": "/__l5e/assets-v1/20139ca7-21f2-4a73-8aac-b26207fbeeeb/erode-voc.jpg",
     "mapQuery": "VOC Park, Erode city, Tamil Nadu, India"
   },
   {
@@ -220,6 +223,8 @@ const destinations = [
   },
   {
     "id": "aarudra",
+    "photoSource": "https://nrameshrao.wordpress.com/2018/10/27/sri-arudra-kapaleeswara-temple-erode/",
+    "photoCredit": "N. Ramesh Rao",
     "name": "Aarudra Kabaaleeswarar Temple",
     "category": "Temples",
     "location": "Fort area, Erode",
@@ -227,7 +232,7 @@ const destinations = [
     "tagline": "In the heart of old Erode",
     "note": "Look for the Erode Fort temple when navigating, not Chennai’s similarly named temple.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "",
+    "image": "/__l5e/assets-v1/1c6cd5b7-e29b-4b18-9943-c9236dbde240/erode-aarudra-gopuram.jpg",
     "mapQuery": "Aarudra Kabaaleeswarar Temple, Fort area, Erode, Tamil Nadu, India"
   },
   {
@@ -254,24 +259,25 @@ const storageKey='erode-explore-favourites-v1';
 const validIds=new Set(destinations.map(d=>d.id));
 let favourites=new Set();
 try{const stored=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(stored))favourites=new Set(stored.filter(id=>validIds.has(id)));}catch{ /* Continue without stored favourites if storage is unavailable. */ }
-let category='All Places',query='',favouritesOnly=false,limit=6,openedDestination=null,toastTimer;
+let category='All Places',query='',favouritesOnly=false,itineraryIds=null,limit=6,openedDestination=null,toastTimer;
 const grid=document.getElementById('destination-grid'),filters=document.getElementById('filters'),dialog=document.getElementById('destination-dialog'),searchInput=document.getElementById('search-input');
 if(!grid||!filters||!dialog||!searchInput)return;
 const hero=document.getElementById('hero-image');if(hero)hero.src=heroImage;
+ document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.alt='Photograph unavailable';}));
 fillIcons();
 function notify(message){const toast=document.getElementById('toast');toast.textContent=message;toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.hidden=true,2500);}
 function updateFavCount(){const count=document.getElementById('fav-count');count.textContent=String(favourites.size);count.hidden=!favourites.size;document.getElementById('favourites-nav').setAttribute('aria-pressed',String(favouritesOnly));}
 function toggleFavourite(id){if(favourites.has(id)){favourites.delete(id);notify('Removed from your favourites');}else{favourites.add(id);notify('Saved to your favourites');}try{localStorage.setItem(storageKey,JSON.stringify([...favourites]));}catch{notify('Saved for this visit. Your browser has blocked storage.');}render();if(openedDestination)renderDetails(openedDestination);}
-function photo(d,modal=false){return d.image?`<img class="${modal?'modal-photo':'card-image'}" src="${escapeHTML(d.image)}" alt="${escapeHTML(d.name)} — Erode district" ${modal?'':'loading="lazy"'}>`:`<div class="${modal?'modal-photo ':''}missing-photo">${icon('image')}<span>Destination photograph unavailable</span></div>`;}
-function matching(){return destinations.filter(d=>(category==='All Places'||d.category===category)&&(!favouritesOnly||favourites.has(d.id))&&`${d.name} ${d.location} ${d.category} ${d.description}`.toLowerCase().includes(query));}
+function photo(d,modal=false){return d.image?`<img class="${modal?'modal-photo':'card-image'}" src="${escapeHTML(d.image)}" alt="${escapeHTML(d.photoAlt||d.name)} — Erode district" ${modal?'':'loading="lazy"'}>`:`<div class="${modal?'modal-photo ':''}missing-photo">${icon('image')}<span>Destination photograph unavailable</span></div>`;}
+function matching(){return destinations.filter(d=>(category==='All Places'||d.category===category)&&(!favouritesOnly||favourites.has(d.id))&&(!itineraryIds||itineraryIds.includes(d.id))&&`${d.name} ${d.location} ${d.category} ${d.description}`.toLowerCase().includes(query));}
 function render(){const results=matching();filters.innerHTML=Object.entries(categories).map(([name,symbol])=>`<button class="filter ${category===name?'active':''}" data-filter="${escapeHTML(name)}" aria-pressed="${category===name}">${icon(symbol)}${name}</button>`).join('')+`<span class="result-count">${results.length} ${results.length===1?'place':'places'} to explore</span>`;
  document.getElementById('destinations-heading').textContent=favouritesOnly?'Your favourite places':'Explore Erode';document.getElementById('destinations-subtitle').textContent=favouritesOnly?'Your little collection of places worth discovering.':'Beautiful places. Local stories. Unforgettable moments.';
  grid.innerHTML=results.slice(0,limit).map(d=>`<article class="destination-card"><div class="card-image-wrap">${photo(d)}<span class="category-badge">${icon(categories[d.category])}${d.category}</span><button class="heart-btn ${favourites.has(d.id)?'saved':''}" data-save="${d.id}" aria-label="${favourites.has(d.id)?'Remove':'Save'} ${escapeHTML(d.name)} ${favourites.has(d.id)?'from':'to'} favourites" aria-pressed="${favourites.has(d.id)}" title="${favourites.has(d.id)?'Remove from':'Save to'} favourites">${icon('heart')}</button></div><div class="card-content"><h3>${d.name}</h3><div class="card-location">${icon('pin')}${d.location}</div><p class="card-description">${d.description}</p><div class="card-bottom"><span class="card-note">${icon('compass')}${d.tagline}</span><button class="detail-btn" data-details="${d.id}" aria-label="Explore ${escapeHTML(d.name)}">Explore ${icon('arrow')}</button></div></div></article>`).join('');
  if(!results.length)grid.innerHTML=`<div class="empty-state"><h3>${favouritesOnly?'No saved places found':'No places found'}</h3><p>${favouritesOnly?'Save a place with its heart, or clear your filters.':'Try another destination name or category.'}</p><button class="btn" id="clear-filters">Explore all places ${icon('arrow')}</button></div>`;
  document.getElementById('load-more').hidden=results.length<=limit;updateFavCount();}
-function selectCategory(name){category=name;limit=6;render();}
-function reset(){category='All Places';query='';searchInput.value='';favouritesOnly=false;limit=6;render();}
-function renderDetails(d){const saved=favourites.has(d.id);document.getElementById('dialog-content').innerHTML=photo(d,true)+`<div class="modal-body"><div class="eyebrow">${d.category}</div><h2 id="dialog-title">${d.name}</h2><div class="card-location">${icon('pin')}${d.location}</div><p>${d.description}</p><div class="visitor-note"><strong>Before you go</strong><br>${d.note}</div><div class="modal-actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.mapQuery)}" target="_blank" rel="noopener noreferrer">${icon('pin')}Google Maps directions ${icon('external')}</a><button class="btn btn-outline" data-save="${d.id}" aria-pressed="${saved}">${icon('heart')}${saved?'Saved to favourites':'Save to favourites'}</button></div><a class="photo-credit" href="${d.source}" target="_blank" rel="noopener noreferrer">Destination reference${d.image?' & photograph: Erode District tourism':''} ${icon('external')}</a></div>`;}
+function selectCategory(name){itineraryIds=null;category=name;limit=6;render();}
+function reset(){itineraryIds=null;category='All Places';query='';searchInput.value='';favouritesOnly=false;limit=6;render();}
+function renderDetails(d){const saved=favourites.has(d.id);document.getElementById('dialog-content').innerHTML=photo(d,true)+`<div class="modal-body"><div class="eyebrow">${d.category}</div><h2 id="dialog-title">${d.name}</h2><div class="card-location">${icon('pin')}${d.location}</div><p>${d.description}</p><div class="visitor-note"><strong>Before you go</strong><br>${d.note}</div><div class="modal-actions"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(d.mapQuery)}" target="_blank" rel="noopener noreferrer">${icon('pin')}Google Maps directions ${icon('external')}</a><button class="btn btn-outline" data-save="${d.id}" aria-pressed="${saved}">${icon('heart')}${saved?'Saved to favourites':'Save to favourites'}</button></div><a class="photo-credit" href="${d.source}" target="_blank" rel="noopener noreferrer">Destination reference ${icon('external')}</a>${d.image?`<a class="photo-credit" href="${d.photoSource||d.source}" target="_blank" rel="noopener noreferrer">Photograph: ${d.photoCredit||'Erode District tourism'} ${icon('external')}</a>`:''}</div>`;}
 function openDetails(id){const d=destinations.find(place=>place.id===id);if(!d)return;openedDestination=d;renderDetails(d);dialog.showModal();document.body.style.overflow='hidden';}
 function closeDetails(){dialog.close();}
 dialog.addEventListener('close',()=>{openedDestination=null;document.body.style.overflow='';});
@@ -282,9 +288,9 @@ searchInput.addEventListener('input',()=>{query=searchInput.value.trim().toLower
 document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();query=searchInput.value.trim().toLowerCase();limit=20;render();document.getElementById('destinations').scrollIntoView({behavior:'smooth'});});
 document.getElementById('load-more').addEventListener('click',()=>{limit+=6;render();});
 document.getElementById('view-all').addEventListener('click',()=>{reset();limit=20;render();});
-document.getElementById('favourites-nav').addEventListener('click',()=>{favouritesOnly=!favouritesOnly;category='All Places';query='';searchInput.value='';limit=20;render();document.getElementById('destinations').scrollIntoView({behavior:'smooth'});});
+document.getElementById('favourites-nav').addEventListener('click',()=>{favouritesOnly=!favouritesOnly;itineraryIds=null;category='All Places';query='';searchInput.value='';limit=20;render();document.getElementById('destinations').scrollIntoView({behavior:'smooth'});});
 const menu=document.getElementById('menu-toggle'),nav=document.querySelector('.nav-links');menu.addEventListener('click',()=>{const expanded=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!expanded));menu.setAttribute('aria-label',expanded?'Open navigation':'Close navigation');nav.classList.toggle('open',!expanded);});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');nav.querySelectorAll('a').forEach(link=>link.classList.toggle('active',link===a));}));
-document.querySelectorAll('.itinerary-link').forEach(btn=>btn.addEventListener('click',()=>{favouritesOnly=false;query='';searchInput.value='';selectCategory(btn.dataset.category);document.getElementById('destinations').scrollIntoView({behavior:'smooth'});}));
+document.querySelectorAll('.itinerary-link').forEach(btn=>btn.addEventListener('click',()=>{favouritesOnly=false;query='';searchInput.value='';category='All Places';itineraryIds=btn.dataset.stops.split(',');limit=20;render();document.getElementById('destinations').scrollIntoView({behavior:'smooth'});}));
 render();
 })();
