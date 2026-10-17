@@ -1,24 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Erode Explore – Discover the Beauty of Erode" },
+      { name: "description", content: "Discover 20 destinations in Erode, Tamil Nadu. Explore rivers, temples, wildlife and local heritage, save favourites and plan your trip." },
+      { property: "og:title", content: "Erode Explore – Discover the Beauty of Erode" },
+      { property: "og:description", content: "Explore Erode’s rivers, temples and timeless traditions with an independent student travel guide." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <iframe
+      title="Erode Explore tourism website"
+      src="/erode/index.html"
+      className="block h-dvh w-full border-0"
+    />
   );
 }
