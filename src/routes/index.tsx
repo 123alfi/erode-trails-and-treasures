@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
+import { useEffect, useRef } from "react";
 import { getPublicDestinations } from "@/lib/destinations.functions";
 
 export const Route = createFileRoute("/")({
@@ -18,21 +19,31 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const readDestinations = useServerFn(getPublicDestinations);
+  const frameRef = useRef<HTMLIFrameElement>(null);
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    let disposed = false;
+    const load = async () => {
+      try {
+        const destinations = await readDestinations();
+        if (!disposed) frame.contentWindow?.postMessage({ type: 'erode:destinations', destinations }, window.location.origin);
+      } catch (error) {
+        console.error('Erode catalogue connection failed:', error);
+        if (!disposed) frame.contentWindow?.postMessage({ type: 'erode:destinations-error' }, window.location.origin);
+      }
+    };
+    frame.addEventListener('load', load);
+    // The SSR iframe may finish loading before React attaches event handlers.
+    if (frame.contentDocument?.readyState === 'complete') void load();
+    return () => { disposed = true; frame.removeEventListener('load', load); };
+  }, [readDestinations]);
   return (
     <iframe
+      ref={frameRef}
       title="Erode Explore tourism website"
       src="/erode/index.html"
       className="block h-dvh w-full border-0"
-      onLoad={async (event) => {
-        const frame = event.currentTarget;
-        try {
-          const destinations = await readDestinations();
-          frame.contentWindow?.postMessage({ type: 'erode:destinations', destinations }, window.location.origin);
-        } catch (error) {
-          console.error('Erode catalogue connection failed:', error);
-          frame.contentWindow?.postMessage({ type: 'erode:destinations-error' }, window.location.origin);
-        }
-      }}
     />
   );
 }
