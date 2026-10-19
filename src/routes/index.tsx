@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { getPublicDestinations } from "@/lib/destinations.functions";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -15,11 +17,22 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const readDestinations = useServerFn(getPublicDestinations);
   return (
     <iframe
       title="Erode Explore tourism website"
       src="/erode/index.html"
       className="block h-dvh w-full border-0"
+      onLoad={async (event) => {
+        const frame = event.currentTarget;
+        try {
+          const destinations = await readDestinations();
+          frame.contentWindow?.postMessage({ type: 'erode:destinations', destinations }, window.location.origin);
+        } catch (error) {
+          console.error('Erode catalogue connection failed:', error);
+          frame.contentWindow?.postMessage({ type: 'erode:destinations-error' }, window.location.origin);
+        }
+      }}
     />
   );
 }
