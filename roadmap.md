@@ -1,8 +1,8 @@
 # Erode Explore
-- [ ] Inspect connected Supabase schema and access rules.
-- [ ] Create a secure public destination catalogue and migrate the existing 20 places without duplicates.
-- [ ] Connect the website while preserving design, local favourites, search, directions and itineraries.
-- [ ] Verify live database reads, access restrictions and existing features; report any blockers.
+- [x] Inspect connected Supabase schema and access rules.
+- [x] Create a secure public destination catalogue and migrate the existing 20 places without duplicates.
+- [x] Connect the website while preserving design, local favourites, search, directions and itineraries.
+- [x] Verify live database reads, access restrictions and existing features; report any blockers.
 - [x] Create forest-green and cream destination experience with real photographs.
 - [x] Add all 20 destinations, search, categories, favourites and map directions.
 - [x] Add travel guide, itineraries and About content.
