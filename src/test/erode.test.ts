@@ -37,7 +37,7 @@ describe("Erode destination rules", () => {
     deliver(seed);
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
-    expect(document.body.dataset.catalogueSource).toBe("supabase");
+    expect(document.body.dataset['catalogueSource']).toBe("supabase");
   });
 
   it("preserves a saved favourite and active search when hosted data arrives", () => {
@@ -70,7 +70,7 @@ describe("Erode destination rules", () => {
     deliver([seed[0], seed[0]]);
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
-    expect(document.body.dataset.catalogueSource).toBe("fallback");
+    expect(document.body.dataset['catalogueSource']).toBe("fallback");
   });
 
   it("rejects executable links in destination data", () => {
@@ -78,6 +78,6 @@ describe("Erode destination rules", () => {
     deliver([{ ...seed[0], source: "javascript:alert(1)" }]);
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
-    expect(document.body.dataset.catalogueSource).toBe("fallback");
+    expect(document.body.dataset['catalogueSource']).toBe("fallback");
   });
 });
