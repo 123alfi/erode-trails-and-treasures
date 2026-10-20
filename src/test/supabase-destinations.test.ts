@@ -9,7 +9,7 @@ describe.skipIf(!url || !key)('Live public destination access', () => {
     return fetch(`${url.replace(/\/$/, '')}/rest/v1/destinations${filter}`, {
       method,
       headers: { apikey: key, 'Content-Type': 'application/json' },
-      body: body ? JSON.stringify(body) : undefined,
+      body: body ? JSON.stringify(body) : null,
     });
   }
 
