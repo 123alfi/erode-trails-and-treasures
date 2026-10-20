@@ -15,7 +15,10 @@ function start() {
 }
 
 describe("Erode destination rules", () => {
-  beforeEach(() => localStorage.clear());
+  beforeEach(() => {
+    localStorage.clear();
+    window.history.replaceState({}, "", "/");
+  });
 
   it("includes the requested 20 destinations", () => {
     start();
@@ -79,5 +82,23 @@ describe("Erode destination rules", () => {
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
     expect(document.body.dataset['catalogueSource']).toBe("fallback");
+  });
+
+  it("renders a reusable details page using the selected destination record", () => {
+    window.history.replaceState({}, "", "/?destination=kodiveri");
+    start();
+    const page = document.getElementById("destination-page");
+    expect(page?.hidden).toBe(false);
+    expect(page?.querySelector("h1")?.textContent).toBe("Kodiveri Dam");
+    expect(page?.textContent).toContain("Kodiveri, near Gobichettipalayam");
+    expect(page?.textContent).toContain("Opening hoursNot listed");
+    expect(page?.textContent).toContain("Entry feeNot listed");
+    expect(page?.querySelector('a[href^="https://www.google.com/maps/dir/"]')?.textContent).toContain("Get Directions");
+  });
+
+  it("keeps the existing detail dialog and offers its full destination page", () => {
+    start();
+    document.querySelector<HTMLButtonElement>('[data-details="kodiveri"]')?.click();
+    expect(document.querySelector('#dialog-content a[href="?destination=kodiveri"]')?.textContent).toContain("Full destination page");
   });
 });
