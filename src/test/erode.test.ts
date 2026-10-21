@@ -89,15 +89,17 @@ describe("Erode destination rules", () => {
   });
 
   it("renders a reusable details page using the selected destination record", () => {
-    window.history.replaceState({}, "", "/?destination=kodiveri");
-    start();
-    const page = document.getElementById("destination-page");
-    expect(page?.hidden).toBe(false);
-    expect(page?.querySelector("h1")?.textContent).toBe("Kodiveri Dam");
-    expect(page?.textContent).toContain("Kodiveri, near Gobichettipalayam");
-    expect(page?.textContent).toContain("Opening hoursNot listed");
-    expect(page?.textContent).toContain("Entry feeNot listed");
-    expect(page?.querySelector('a[href^="https://www.google.com/maps/dir/"]')?.textContent).toContain("Get Directions");
+    for (const destination of seed) {
+      window.history.replaceState({}, "", `/?destination=${destination.id}`);
+      start();
+      const page = document.getElementById("destination-page");
+      expect(page?.hidden).toBe(false);
+      expect(page?.querySelector("h1")?.textContent).toBe(destination.name);
+      expect(page?.textContent).toContain(destination.location);
+      expect(page?.textContent).toContain("Opening hoursNot listed");
+      expect(page?.textContent).toContain("Entry feeNot listed");
+      expect(page?.querySelector('a[href^="https://www.google.com/maps/dir/"]')?.textContent).toContain("Get Directions");
+    }
   });
 
   it("keeps the existing detail dialog and offers its full destination page", () => {
