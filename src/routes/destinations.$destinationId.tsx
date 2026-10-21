@@ -1,5 +1,4 @@
 import { createFileRoute, Link, notFound, type ErrorComponentProps } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useRef } from "react";
 import { getPublicDestinations } from "@/lib/destinations.functions";
 
@@ -57,21 +56,14 @@ export const Route = createFileRoute("/destinations/$destinationId")({
 
 function DestinationPage() {
   const { destination, destinations } = Route.useLoaderData();
-  const readDestinations = useServerFn(getPublicDestinations);
   const frameRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const frame = frameRef.current;
     if (!frame) return;
     let disposed = false;
-    const sendCatalogue = async () => {
-      try {
-        const catalogue = await readDestinations();
-        if (!disposed) frame.contentWindow?.postMessage({ type: "erode:destinations", destinations: catalogue }, window.location.origin);
-      } catch (error) {
-        console.error("Erode catalogue connection failed:", error);
-        if (!disposed) frame.contentWindow?.postMessage({ type: "erode:destinations-error" }, window.location.origin);
-      }
+    const sendCatalogue = () => {
+      if (!disposed) frame.contentWindow?.postMessage({ type: "erode:destinations", destinations }, window.location.origin);
     };
     frame.addEventListener("load", sendCatalogue);
     if (frame.contentDocument?.readyState === "complete") void sendCatalogue();
@@ -79,7 +71,7 @@ function DestinationPage() {
       disposed = true;
       frame.removeEventListener("load", sendCatalogue);
     };
-  }, [readDestinations, destination.id]);
+  }, [destinations, destination.id]);
 
   return (
     <iframe

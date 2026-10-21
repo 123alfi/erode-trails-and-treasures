@@ -18,6 +18,10 @@ describe("Erode destination rules", () => {
   beforeEach(() => {
     localStorage.clear();
     window.history.replaceState({}, "", "/");
+    Object.defineProperty(window.HTMLDialogElement.prototype, "showModal", {
+      configurable: true,
+      value() { this.setAttribute("open", ""); },
+    });
   });
 
   it("includes the requested 20 destinations", () => {
