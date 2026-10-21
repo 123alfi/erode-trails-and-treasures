@@ -99,6 +99,10 @@ describe("Erode destination rules", () => {
       expect(page?.textContent).toContain("Opening hoursNot listed");
       expect(page?.textContent).toContain("Entry feeNot listed");
       expect(page?.querySelector('a[href^="https://www.google.com/maps/dir/"]')?.textContent).toContain("Get Directions");
+      page?.querySelector<HTMLButtonElement>('[data-save="kodiveri"]')?.click();
+      if (destination.id === "kodiveri") {
+        expect(page?.querySelector('[data-save="kodiveri"]')?.getAttribute("aria-pressed")).toBe("true");
+      }
     }
   });
 
