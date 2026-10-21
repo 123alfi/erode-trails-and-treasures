@@ -1,5 +1,5 @@
 # Erode Explore
-- [ ] Add one reusable destination details page for all 20 places, using the live Supabase catalogue and existing visual style.
+- [x] Add one reusable destination details page for all 20 places, using the live Supabase catalogue and existing visual style.
 - [x] Inspect connected Supabase schema and access rules.
 - [x] Create a secure public destination catalogue and migrate the existing 20 places without duplicates.
 - [x] Connect the website while preserving design, local favourites, search, directions and itineraries.
