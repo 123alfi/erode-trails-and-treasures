@@ -264,6 +264,8 @@ try{const stored=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isA
 let category='All Places',query='',favouritesOnly=false,itineraryIds=null,limit=6,openedDestination=null,toastTimer;
 const grid=document.getElementById('destination-grid'),filters=document.getElementById('filters'),dialog=document.getElementById('destination-dialog'),searchInput=document.getElementById('search-input');
 const destinationPage=document.getElementById('destination-page'),pageDestinationId=new URLSearchParams(window.location.search).get('destination');
+const introSplash=document.getElementById('intro-splash');
+if(document.documentElement.classList.contains('erode-intro-active'))window.setTimeout(()=>{document.documentElement.classList.remove('erode-intro-active');window.setTimeout(()=>introSplash?.setAttribute('hidden',''),500);},2550);
 if(!grid||!filters||!dialog||!searchInput||!destinationPage)return;
 const hero=document.getElementById('hero-image');if(hero)hero.src=heroImage;
  document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.alt='Photograph unavailable';}));
