@@ -157,6 +157,8 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.2}
 .guide-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px 24px;transition:transform .3s,box-shadow .3s}
 .guide-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
 .guide-item:first-child{grid-column:span 2;background:linear-gradient(140deg,#FCEFD6,var(--card) 70%)}
+.guide-item:last-child{grid-column:span 4}
+.guide-item:last-child p{max-width:560px}
 .guide-item>.icon{width:24px;height:24px;color:var(--primary);background:var(--accent-soft);border-radius:12px;padding:10px;box-sizing:content-box;margin-bottom:16px}
 .guide-item h3{font-size:21px}
 .guide-item p{font-size:12px;color:var(--muted-foreground);margin-top:10px;line-height:1.9}
@@ -238,8 +240,8 @@ body.destination-view .nav-links,body.destination-view #favourites-nav,body.dest
   .stats{width:min(460px,46%);gap:12px}
   .stat{padding:16px 14px}
   .stat strong{font-size:30px}
-  .guide-grid{grid-template-columns:repeat(2,1fr)}
-  .guide-item:first-child{grid-column:span 2}
+  .guide-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .guide-item:first-child,.guide-item:last-child{grid-column:span 2}
 }
 @media(max-width:900px){
   .container{width:calc(100% - 36px)}
@@ -305,7 +307,7 @@ body.destination-view .nav-links,body.destination-view #favourites-nav,body.dest
   .hero{height:565px}
   .stats{grid-template-columns:1fr}
   .guide-grid{grid-template-columns:1fr}
-  .guide-item:first-child{grid-column:span 1}
+  .guide-item:first-child,.guide-item:last-child{grid-column:span 1}
   .hero-chips{display:none}
   .search-form input{font-size:11px}
   .search-form .btn{font-size:11px}
