@@ -312,4 +312,16 @@ window.addEventListener('message',event=>{
  destinations=event.data.destinations;destinations.forEach(d=>validIds.add(d.id));document.body.dataset.catalogueSource='supabase';render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));
  if(openedDestination){const updated=destinations.find(d=>d.id===openedDestination.id);if(updated){openedDestination=updated;renderDetails(updated);}else closeDetails();}
 });
+// Gentle motion: sections reveal as they scroll into view, stats count up,
+// and the header gains a soft shadow once the page is scrolled.
+const header=document.getElementById('site-header');
+window.addEventListener('scroll',()=>{if(header)header.classList.toggle('scrolled',window.scrollY>8);},{passive:true});
+(function initMotion(){
+ const countUp=el=>{const target=Number(el.dataset.count);if(!Number.isFinite(target)||el.dataset.counted)return;el.dataset.counted='true';const tick=()=>{let current=0;const step=Math.max(1,Math.round(target/24));const advance=()=>{current=Math.min(target,current+step);el.textContent=String(current);if(current<target)requestAnimationFrame(advance);};advance();};if(typeof requestAnimationFrame==='function')tick();else el.textContent=String(target);};
+ const runCounters=root=>root.querySelectorAll('.stat strong[data-count]').forEach(countUp);
+ const targets=document.querySelectorAll('[data-reveal]');
+ if(!('IntersectionObserver' in window)){targets.forEach(t=>t.classList.add('revealed'));runCounters(document);return;}
+ const io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('revealed');runCounters(entry.target);io.unobserve(entry.target);});},{threshold:.2});
+ targets.forEach(target=>io.observe(target));
+})();
 })();
