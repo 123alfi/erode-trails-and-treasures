@@ -11,7 +11,7 @@ let destinations = [
     "tagline": "Waterfront escape",
     "note": "Check current water releases and local access restrictions. Bathing may be prohibited during high flows.",
     "source": "https://erode.nic.in/tourism/places-of-interest/",
-    "image": "/__l5e/assets-v1/76454968-efc8-455c-9498-f579d1b6687c/erode-kodiveri.jpg",
+    "image": "images/erode-kodiveri.jpg",
     "mapQuery": "Kodiveri Dam, Kodiveri, near Gobichettipalayam, Tamil Nadu, India"
   },
   {
@@ -23,7 +23,7 @@ let destinations = [
     "tagline": "Sacred traditions",
     "note": "Dress respectfully. Festival dates and visiting arrangements should be confirmed with the temple.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/625066f4-26ea-4286-a5c4-4bdc605ed916/erode-bannari.jpg",
+    "image": "images/erode-bannari.jpg",
     "mapQuery": "Bannari Amman Temple, Bannari, near Sathyamangalam, Tamil Nadu, India"
   },
   {
@@ -35,7 +35,7 @@ let destinations = [
     "tagline": "Birdwatcher’s favourite",
     "note": "Winter is generally rewarding for birdwatching. Carry binoculars and avoid disturbing nesting birds.",
     "source": "https://erode.nic.in/tourism/places-of-interest/",
-    "image": "/__l5e/assets-v1/84f412ae-e6bf-42a2-b7eb-2aa1208c9559/erode-vellode.jpg",
+    "image": "images/erode-vellode.jpg",
     "mapQuery": "Vellode Bird Sanctuary, Vellode, near Erode, Tamil Nadu, India"
   },
   {
@@ -47,7 +47,7 @@ let destinations = [
     "tagline": "Reservoir views",
     "note": "Confirm park access before visiting. Restricted dam areas are not open for casual exploration.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "/__l5e/assets-v1/ed517e06-92cb-4d3d-b181-78d92cb3c986/erode-bhavanisagar.jpg",
+    "image": "images/erode-bhavanisagar.jpg",
     "mapQuery": "Bhavanisagar Dam, Bhavanisagar, near Sathyamangalam, Tamil Nadu, India"
   },
   {
@@ -59,7 +59,7 @@ let destinations = [
     "tagline": "Riverside heritage",
     "note": "The Amudha river is part of religious tradition. Riverbank access depends on water levels.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/795306c7-3611-4450-a00f-ad2e89dfb24e/erode-sangameshwarar.jpg",
+    "image": "images/erode-sangameshwarar.jpg",
     "mapQuery": "Bhavani Sangameshwarar Temple, Kooduthurai, Bhavani, Tamil Nadu, India"
   },
   {
@@ -71,7 +71,7 @@ let destinations = [
     "tagline": "Living craft traditions",
     "note": "This is a local craft tradition rather than a single ticketed attraction. Arrange workshop visits directly with artisans.",
     "source": "https://erode.nic.in/rural-handy-crafts-tourism/",
-    "image": "/__l5e/assets-v1/3c004f15-f2ef-4794-b0d3-c3cfb30cd29e/erode-jamakkalam.jpg",
+    "image": "images/erode-jamakkalam.jpg",
     "mapQuery": "Bhavani Jamakkalam weaving Bhavani Tamil Nadu"
   },
   {
@@ -83,7 +83,7 @@ let destinations = [
     "tagline": "A quieter escape",
     "note": "Visitor access is subject to local restrictions. Keep away from forest areas and wildlife.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "/__l5e/assets-v1/d55941c2-2b02-496b-9b21-6b26168d85a9/erode-varattupallam.jpg",
+    "image": "images/erode-varattupallam.jpg",
     "mapQuery": "Varattupallam Dam, Near Anthiyur, Bargur foothills, Tamil Nadu, India"
   },
   {
@@ -95,7 +95,7 @@ let destinations = [
     "tagline": "Hill-framed waters",
     "note": "Check access locally. Do not swim or enter restricted water-management areas.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "/__l5e/assets-v1/4151ca97-179d-4ec2-b5a4-bab9ef5b865a/erode-kunderipallam.jpg",
+    "image": "images/erode-kunderipallam.jpg",
     "mapQuery": "Kunderipallam Dam, Near Kongarpalayam, Gobichettipalayam region, Tamil Nadu, India"
   },
   {
@@ -108,7 +108,7 @@ let destinations = [
     "tagline": "Wild at heart",
     "note": "Only authorised forest visits are permitted. Check current arrangements with the Forest Department; sightings are never guaranteed.",
     "source": "https://erode.nic.in/eco-tourism/",
-    "image": "/__l5e/assets-v1/31732357-6025-43b7-8d35-e3a6d52e3b82/erode-sathyamangalam.jpg",
+    "image": "images/erode-sathyamangalam.jpg",
     "mapQuery": "Sathyamangalam Tiger Reserve, Sathyamangalam region, Tamil Nadu, India"
   },
   {
@@ -120,7 +120,7 @@ let destinations = [
     "tagline": "Hilltop serenity",
     "note": "Plan for steps or confirm hill-road transport arrangements. Respect worship and photography restrictions.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/dfc547e6-9afc-44a0-a478-5d60e968e2d6/erode-chennimalai.jpg",
+    "image": "images/erode-chennimalai.jpg",
     "mapQuery": "Chennimalai Murugan Temple, Chennimalai, Tamil Nadu, India"
   },
   {
@@ -132,7 +132,7 @@ let destinations = [
     "tagline": "Above the city",
     "note": "Steps and uneven surfaces may affect accessibility. Confirm temple timings locally.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/6de65c1a-edfb-4fc3-a9a4-009856d4afec/erode-thindal.jpg",
+    "image": "images/erode-thindal.jpg",
     "mapQuery": "Thindal Murugan Temple, Thindal, Erode, Tamil Nadu, India"
   },
   {
@@ -144,7 +144,7 @@ let destinations = [
     "tagline": "Cauvery-side devotion",
     "note": "Dress respectfully and follow local instructions near the river.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/5c5092b2-4e31-4db5-a4fb-afb0f33a252f/erode-magudeswarar.jpg",
+    "image": "images/erode-magudeswarar.jpg",
     "mapQuery": "Magudeswarar Temple, Kodumudi, Tamil Nadu, India"
   },
   {
@@ -156,7 +156,7 @@ let destinations = [
     "tagline": "Stories of Kongu Nadu",
     "note": "Confirm the current museum location, opening days and visitor arrangements before travelling.",
     "source": "https://erode.nic.in/heritage-tourism/",
-    "image": "/__l5e/assets-v1/ceb5b612-6622-4f11-8088-a31e747e241e/erode-museum.jpg",
+    "image": "images/erode-museum.jpg",
     "mapQuery": "Government Museum Erode, Erode city, Tamil Nadu, India"
   },
   {
@@ -168,7 +168,7 @@ let destinations = [
     "tagline": "A reformer’s legacy",
     "note": "Confirm visiting hours locally; photography inside may be restricted.",
     "source": "https://erode.nic.in/heritage-tourism/",
-    "image": "/__l5e/assets-v1/2df54ca0-9269-4de0-a1e7-04ca089ad115/erode-periyar.jpg",
+    "image": "images/erode-periyar.jpg",
     "mapQuery": "Periyar Memorial House, Periyar Street, Erode, Tamil Nadu, India"
   },
   {
@@ -180,7 +180,7 @@ let destinations = [
     "tagline": "Ancient stories",
     "note": "An archaeological site, not a daily visitor attraction. Seek permission and current access information; never disturb remains.",
     "source": "https://erode.nic.in/heritage-tourism/",
-    "image": "/__l5e/assets-v1/abd6b502-addf-45f3-aa30-8a0af081fc89/erode-kodumanal.jpg",
+    "image": "images/erode-kodumanal.jpg",
     "mapQuery": "Kodumanal Archaeological Site, Kodumanal, near the Noyyal River, Tamil Nadu, India"
   },
   {
@@ -194,7 +194,7 @@ let destinations = [
     "tagline": "A city pause",
     "note": "Facilities and accessible areas can change. Confirm current park access locally.",
     "source": "https://erode.nic.in/tourism/places-of-interest/",
-    "image": "/__l5e/assets-v1/20139ca7-21f2-4a73-8aac-b26207fbeeeb/erode-voc.jpg",
+    "image": "images/erode-voc.jpg",
     "mapQuery": "VOC Park, Erode city, Tamil Nadu, India"
   },
   {
@@ -206,7 +206,7 @@ let destinations = [
     "tagline": "Engineering heritage",
     "note": "The canal spans multiple places; the map link points to the anicut. Keep clear of flowing water.",
     "source": "https://erode.nic.in/water-bodies-dams/",
-    "image": "/__l5e/assets-v1/ccb76410-28d4-47ac-b43f-54e40ec1e314/erode-kalingarayan.jpg",
+    "image": "images/erode-kalingarayan.jpg",
     "mapQuery": "Kalingarayan Anicut Bhavani Tamil Nadu"
   },
   {
@@ -232,7 +232,7 @@ let destinations = [
     "tagline": "In the heart of old Erode",
     "note": "Look for the Erode Fort temple when navigating, not Chennai’s similarly named temple.",
     "source": "https://erode.nic.in/religious-tourism/",
-    "image": "/__l5e/assets-v1/1c6cd5b7-e29b-4b18-9943-c9236dbde240/erode-aarudra-gopuram.jpg",
+    "image": "images/erode-aarudra-gopuram.jpg",
     "mapQuery": "Aarudra Kabaaleeswarar Temple, Fort area, Erode, Tamil Nadu, India"
   },
   {
@@ -244,17 +244,17 @@ let destinations = [
     "tagline": "A family day out",
     "note": "Confirm operating status, opening hours, ticket prices and available attractions directly with the park.",
     "source": "https://erode.nic.in/tourism/places-of-interest/",
-    "image": "/__l5e/assets-v1/af43aa81-eea9-42ab-ba35-3c254dab3271/erode-chillout.jpg",
+    "image": "images/erode-chillout.jpg",
     "mapQuery": "Chillout Theme Park, Perundurai–Vellode Road, near Perundurai, Tamil Nadu, India"
   }
 ];
-const heroImage = "/__l5e/assets-v1/345d01fc-df7f-4426-888e-e4a1fc1869f3/erode-hero.jpg";
+const heroImage = "images/erode-hero.jpg";
 // Small inline SVG icons: no icon library needed.
 const paths={mountain:'<path d="m2 19 7-13 5 8 3-5 5 10H2Z"/><path d="m6 12 3 2 2-2m4 1 2 1 2-1"/><circle cx="18" cy="5" r="2"/>',pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0l-1 1-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',leaf:'<path d="M20 3C7 2 2 8 5 15s15 5 15-12Z"/><path d="M3 21 16 8"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>',train:'<rect x="5" y="3" width="14" height="15" rx="3"/><path d="M5 10h14M9 18l-3 4m9-4 3 4M12 3v7"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>',bag:'<rect x="4" y="7" width="16" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>',compass:'<circle cx="12" cy="12" r="9"/><path d="m16 8-3 5-5 3 3-5 5-3Z"/>',waves:'<path d="M2 7c4-5 6 5 10 0s6 5 10 0M2 13c4-5 6 5 10 0s6 5 10 0M2 19c4-5 6 5 10 0s6 5 10 0"/>',temple:'<path d="M3 21h18M5 21v-7h14v7M4 14l3-4h10l3 4M8 10V7h8v3M9 7l3-5 3 5M10 21v-4h4v4"/>',heritage:'<path d="m3 7 9-5 9 5H3Zm2 3v8m5-8v8m4-8v8m5-8v8M3 21h18M3 18h18"/>',park:'<path d="M12 2 5 10h4l-6 7h8v5m2-5h8l-6-7h4l-7-8Z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',external:'<path d="M14 3h7v7m-1-6-9 9M10 3H3v18h18v-7"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',menu:'<path d="M3 6h18M3 12h18M3 18h18"/>',image:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 17 5-5 4 4 4-6 5 7"/><circle cx="8" cy="8" r="1"/>'};
 function icon(name){return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.pin}</svg>`;}
 function fillIcons(root=document){root.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));}
 function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function safeURL(value,image=false){if(typeof value!=='string')return false;if(image&&(value===''||/^\/__l5e\/assets-v1\/[a-zA-Z0-9/_.-]+$/.test(value)))return true;try{return new URL(value).protocol==='https:';}catch{return false;}}
+function safeURL(value,image=false){if(typeof value!=='string')return false;if(image&&(value===''||/^(images\/[a-zA-Z0-9_.-]+|\/__l5e\/assets-v1\/[a-zA-Z0-9/_.-]+)$/.test(value)))return true;try{return new URL(value).protocol==='https:';}catch{return false;}}
 function validCatalogue(rows){if(!Array.isArray(rows))return false;const ids=new Set(),names=new Set();return rows.every(d=>{if(!d||typeof d!=='object'||typeof d.id!=='string'||! /^[a-z0-9-]+$/.test(d.id)||ids.has(d.id)||!Object.hasOwn(categories,d.category)||d.category==='All Places')return false;const fields=['name','location','description','tagline','note','mapQuery'];if(fields.some(k=>typeof d[k]!=='string'||!d[k].trim()||d[k].length>10000))return false;const name=d.name.trim().toLowerCase();if(names.has(name)||!safeURL(d.source)||!safeURL(d.image,true)||(d.photoSource&&!safeURL(d.photoSource)))return false;ids.add(d.id);names.add(name);return true;});}
 const categories={'All Places':'grid','Dams & Rivers':'waves','Temples':'temple','Nature & Wildlife':'leaf','Heritage & Culture':'heritage','Leisure & Parks':'park'};
 const storageKey='erode-explore-favourites-v1';
@@ -311,7 +311,8 @@ window.addEventListener('message',event=>{
  if(event.data?.type==='erode:destinations-error'){document.body.dataset.catalogueSource='fallback';notify('Connection unavailable. Showing saved destination information.');return;}
  if(event.data?.type!=='erode:destinations')return;
  if(!validCatalogue(event.data.destinations)){document.body.dataset.catalogueSource='fallback';notify('Destination information could not be loaded. Showing saved information.');return;}
- destinations=event.data.destinations;destinations.forEach(d=>validIds.add(d.id));document.body.dataset.catalogueSource='supabase';render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));
+ // Catalogue photos point at the CDN; use the local copies in images/ instead.
+ destinations=event.data.destinations.map(d=>({...d,image:d.image&&d.image.startsWith('/__l5e/')?`images/${d.image.split('/').pop()}`:d.image}));destinations.forEach(d=>validIds.add(d.id));document.body.dataset.catalogueSource='supabase';render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));
  if(openedDestination){const updated=destinations.find(d=>d.id===openedDestination.id);if(updated){openedDestination=updated;renderDetails(updated);}else closeDetails();}
 });
 // Gentle motion: sections reveal as they scroll into view, stats count up,
