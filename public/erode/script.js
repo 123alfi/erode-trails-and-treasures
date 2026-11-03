@@ -309,7 +309,8 @@ window.addEventListener('message',event=>{
  if(event.data?.type==='erode:destinations-error'){document.body.dataset.catalogueSource='fallback';notify('Connection unavailable. Showing saved destination information.');return;}
  if(event.data?.type!=='erode:destinations')return;
  if(!validCatalogue(event.data.destinations)){document.body.dataset.catalogueSource='fallback';notify('Destination information could not be loaded. Showing saved information.');return;}
- destinations=event.data.destinations;destinations.forEach(d=>validIds.add(d.id));document.body.dataset.catalogueSource='supabase';render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));
+ // Catalogue photos point at the CDN; use the local copies in images/ instead.
+ destinations=event.data.destinations.map(d=>({...d,image:d.image&&d.image.startsWith('/__l5e/')?`images/${d.image.split('/').pop()}`:d.image}));destinations.forEach(d=>validIds.add(d.id));document.body.dataset.catalogueSource='supabase';render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));
  if(openedDestination){const updated=destinations.find(d=>d.id===openedDestination.id);if(updated){openedDestination=updated;renderDetails(updated);}else closeDetails();}
 });
 // Gentle motion: sections reveal as they scroll into view, stats count up,
