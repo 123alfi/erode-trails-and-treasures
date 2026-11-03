@@ -4,7 +4,7 @@ Build a modern, responsive tourism website called “Erode Explore – Discover 
 
 Technologies: HTML5, CSS3, and vanilla JavaScript. Create three separate files: index.html, style.css, and script.js.
 
-The tourism experience supports English, Tamil, Malayalam, and Hindi. Choose a language from the navbar; the preference is saved in the browser and applies to the standalone page and hosted destination views.
+The tourism experience supports English, Tamil, Malayalam, and Hindi. Choose a language from the navbar; the preference is saved in the browser and applies to the standalone page and hosted destination views. Use the navbar’s sun/moon control to switch between warm beige-and-forest-green light mode and deep-green-and-charcoal dark mode; the theme is saved in the browser.
 
 Design: Premium travel website with forest green and cream colours, beautiful destination photos, elegant typography, rounded cards, smooth hover effects, and mobile-friendly layouts.
 

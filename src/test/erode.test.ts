@@ -56,6 +56,49 @@ describe("Erode destination rules", () => {
     expect(document.querySelector(".nav-links a")?.textContent).toBe("முகப்பு");
   });
 
+  it("defaults to light mode and persists theme changes", () => {
+    start();
+    const toggle = document.getElementById("theme-toggle") as HTMLButtonElement;
+
+    expect(document.documentElement.dataset["theme"]).toBe("light");
+    expect(toggle.getAttribute("aria-label")).toBe("Switch to dark mode");
+    expect(toggle.getAttribute("aria-pressed")).toBe("false");
+    toggle.click();
+    expect(document.documentElement.dataset["theme"]).toBe("dark");
+    expect(toggle.getAttribute("aria-label")).toBe("Switch to light mode");
+    expect(toggle.getAttribute("aria-pressed")).toBe("true");
+    expect(localStorage.getItem("erode-explore-theme-v1")).toBe("dark");
+
+    start();
+    expect(document.documentElement.dataset["theme"]).toBe("dark");
+    (document.getElementById("theme-toggle") as HTMLButtonElement).click();
+    expect(document.documentElement.dataset["theme"]).toBe("light");
+    expect(localStorage.getItem("erode-explore-theme-v1")).toBe("light");
+  });
+
+  it("localizes the theme toggle label when the site language changes", () => {
+    start();
+    const language = document.getElementById("language-select") as HTMLSelectElement;
+    const toggle = document.getElementById("theme-toggle") as HTMLButtonElement;
+
+    for (const [code, label] of [
+      ["ta", "இருள் பயன்முறைக்கு மாற்று"],
+      ["ml", "ഡാർക്ക് മോഡിലേക്ക് മാറ്റുക"],
+      ["hi", "डार्क मोड चालू करें"],
+      ["en", "Switch to dark mode"],
+    ]) {
+      language.value = code;
+      language.dispatchEvent(new Event("change"));
+      expect(toggle.getAttribute("aria-label")).toBe(label);
+      expect(toggle.title).toBe(label);
+    }
+
+    language.value = "hi";
+    language.dispatchEvent(new Event("change"));
+    toggle.click();
+    expect(toggle.getAttribute("aria-label")).toBe("लाइट मोड चालू करें");
+  });
+
   it("localizes all 20 destination cards and category controls in all supported languages", () => {
     start();
     document.getElementById("view-all")?.click();

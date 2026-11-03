@@ -250,7 +250,7 @@ let destinations = [
 ];
 const heroImage = "images/erode-hero.jpg";
 // Small inline SVG icons: no icon library needed.
-const paths={mountain:'<path d="m2 19 7-13 5 8 3-5 5 10H2Z"/><path d="m6 12 3 2 2-2m4 1 2 1 2-1"/><circle cx="18" cy="5" r="2"/>',pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0l-1 1-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',leaf:'<path d="M20 3C7 2 2 8 5 15s15 5 15-12Z"/><path d="M3 21 16 8"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>',train:'<rect x="5" y="3" width="14" height="15" rx="3"/><path d="M5 10h14M9 18l-3 4m9-4 3 4M12 3v7"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>',bag:'<rect x="4" y="7" width="16" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>',compass:'<circle cx="12" cy="12" r="9"/><path d="m16 8-3 5-5 3 3-5 5-3Z"/>',waves:'<path d="M2 7c4-5 6 5 10 0s6 5 10 0M2 13c4-5 6 5 10 0s6 5 10 0M2 19c4-5 6 5 10 0s6 5 10 0"/>',temple:'<path d="M3 21h18M5 21v-7h14v7M4 14l3-4h10l3 4M8 10V7h8v3M9 7l3-5 3 5M10 21v-4h4v4"/>',heritage:'<path d="m3 7 9-5 9 5H3Zm2 3v8m5-8v8m4-8v8m5-8v8M3 21h18M3 18h18"/>',park:'<path d="M12 2 5 10h4l-6 7h8v5m2-5h8l-6-7h4l-7-8Z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',external:'<path d="M14 3h7v7m-1-6-9 9M10 3H3v18h18v-7"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',menu:'<path d="M3 6h18M3 12h18M3 18h18"/>',image:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 17 5-5 4 4 4-6 5 7"/><circle cx="8" cy="8" r="1"/>'};
+const paths={mountain:'<path d="m2 19 7-13 5 8 3-5 5 10H2Z"/><path d="m6 12 3 2 2-2m4 1 2 1 2-1"/><circle cx="18" cy="5" r="2"/>',pin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0l-1 1-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',search:'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',arrow:'<path d="M4 12h16m-6-6 6 6-6 6"/>',leaf:'<path d="M20 3C7 2 2 8 5 15s15 5 15-12Z"/><path d="M3 21 16 8"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/>',moon:'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>',train:'<rect x="5" y="3" width="14" height="15" rx="3"/><path d="M5 10h14M9 18l-3 4m9-4 3 4M12 3v7"/><circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>',bag:'<rect x="4" y="7" width="16" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/>',compass:'<circle cx="12" cy="12" r="9"/><path d="m16 8-3 5-5 3 3-5 5-3Z"/>',waves:'<path d="M2 7c4-5 6 5 10 0s6 5 10 0M2 13c4-5 6 5 10 0s6 5 10 0M2 19c4-5 6 5 10 0s6 5 10 0"/>',temple:'<path d="M3 21h18M5 21v-7h14v7M4 14l3-4h10l3 4M8 10V7h8v3M9 7l3-5 3 5M10 21v-4h4v4"/>',heritage:'<path d="m3 7 9-5 9 5H3Zm2 3v8m5-8v8m4-8v8m5-8v8M3 21h18M3 18h18"/>',park:'<path d="M12 2 5 10h4l-6 7h8v5m2-5h8l-6-7h4l-7-8Z"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',external:'<path d="M14 3h7v7m-1-6-9 9M10 3H3v18h18v-7"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',menu:'<path d="M3 6h18M3 12h18M3 18h18"/>',image:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 17 5-5 4 4 4-6 5 7"/><circle cx="8" cy="8" r="1"/>'};
 function icon(name){return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.pin}</svg>`;}
 function fillIcons(root=document){root.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));}
 function escapeHTML(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
@@ -259,16 +259,21 @@ function validCatalogue(rows){if(!Array.isArray(rows))return false;const ids=new
 const categories={'All Places':'grid','Dams & Rivers':'waves','Temples':'temple','Nature & Wildlife':'leaf','Heritage & Culture':'heritage','Leisure & Parks':'park'};
 const storageKey='erode-explore-favourites-v1';
 const languageStorageKey='erode-explore-language-v1';
+const themeStorageKey='erode-explore-theme-v1';
 const translations=window.ERODE_TRANSLATIONS;
 if(!translations)throw new Error('Erode translations failed to load.');
 const supportedLanguages=new Set(translations.languages.map(language=>language.code));
 let language='en';
 let languageStorageUnavailable=false;
 try{const storedLanguage=localStorage.getItem(languageStorageKey);if(supportedLanguages.has(storedLanguage))language=storedLanguage;}catch{languageStorageUnavailable=true;}
+let theme='light',themeStorageUnavailable=false;
+try{const storedTheme=localStorage.getItem(themeStorageKey);if(storedTheme==='light'||storedTheme==='dark')theme=storedTheme;}catch{themeStorageUnavailable=true;}
+document.documentElement.dataset.theme=theme;
 function t(key,values={}){const text=translations.ui[language]?.[key]??translations.ui.en[key]??key;return typeof text==='string'?text.replace(/\{\{(\w+)\}\}/g,(_,name)=>String(values[name]??'')):text;}
 function number(value){return new Intl.NumberFormat(translations.ui[language].numberLocale).format(value);}
 function localizedDestination(destination){return{...destination,...(translations.destinations[language]?.[destination.id]||{})};}
 function setElementText(element,text){if(!element)return;const node=Array.from(element.childNodes).find(child=>child.nodeType===Node.TEXT_NODE);if(node)node.nodeValue=text;else element.textContent=text;}
+function updateThemeToggle(){const toggle=document.getElementById('theme-toggle');toggle.setAttribute('aria-label',t(theme==='light'?'switchToDark':'switchToLight'));toggle.setAttribute('title',t(theme==='light'?'switchToDark':'switchToLight'));toggle.setAttribute('aria-pressed',String(theme==='dark'));toggle.innerHTML=icon(theme==='light'?'moon':'sun');}
 function applyStaticTranslations(){
  document.documentElement.lang=language;
  document.getElementById('language-select').value=language;
@@ -276,6 +281,7 @@ function applyStaticTranslations(){
  for(const [selector,attributes] of Object.entries(translations.attributes)){document.querySelectorAll(selector).forEach(element=>{for(const [attribute,key] of Object.entries(attributes))element.setAttribute(attribute,t(key));});}
  const menuToggle=document.getElementById('menu-toggle');
  menuToggle.setAttribute('aria-label',t(menuToggle.getAttribute('aria-expanded')==='true'?'closeNavigation':'openNavigation'));
+ updateThemeToggle();
  const titleNodes=Array.from(document.querySelector('#home h1').childNodes).filter(node=>node.nodeType===Node.TEXT_NODE);
  if(titleNodes[0])titleNodes[0].nodeValue=t('heroTitleLead');
  if(titleNodes[1])titleNodes[1].nodeValue=t('heroTitleOf');
@@ -301,6 +307,7 @@ document.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
 fillIcons();
 applyStaticTranslations();
 if(languageStorageUnavailable)notify(t('languageStorageBlocked'));
+if(themeStorageUnavailable)notify(t('themeStorageBlocked'));
 function notify(message){const toast=document.getElementById('toast');toast.textContent=message;toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.hidden=true,2500);}
 function updateFavCount(){const count=document.getElementById('fav-count');count.textContent=number(favourites.size);count.hidden=!favourites.size;document.getElementById('favourites-nav').setAttribute('aria-pressed',String(favouritesOnly));}
 function toggleFavourite(id){if(favourites.has(id)){favourites.delete(id);notify(t('removedToast'));}else{favourites.add(id);notify(t('savedToast'));}try{localStorage.setItem(storageKey,JSON.stringify([...favourites]));}catch{notify(t('storageBlocked'));}render();renderDestinationPage(destinations.find(d=>d.id===pageDestinationId));if(openedDestination)renderDetails(openedDestination);}
@@ -329,6 +336,12 @@ searchInput.addEventListener('input',()=>{query=searchInput.value.trim().toLocal
 document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();query=searchInput.value.trim().toLocaleLowerCase(language);limit=20;render();document.getElementById('destinations').scrollIntoView({behavior:'smooth'});});
 document.getElementById('load-more').addEventListener('click',()=>{limit+=6;render();});
 document.getElementById('view-all').addEventListener('click',()=>{reset();limit=20;render();});
+document.getElementById('theme-toggle').addEventListener('click',()=>{
+ theme=theme==='light'?'dark':'light';
+ document.documentElement.dataset.theme=theme;
+ updateThemeToggle();
+ try{localStorage.setItem(themeStorageKey,theme);}catch{notify(t('themeStorageBlocked'));}
+});
 document.getElementById('language-select').addEventListener('change',event=>{
  const selected=event.currentTarget.value;
  if(!supportedLanguages.has(selected))return;

@@ -471,6 +471,10 @@
       closeNavigation: "Close navigation",
       navigationLabel: "Main navigation",
       homeLabel: "Erode home",
+      switchToDark: "Switch to dark mode",
+      switchToLight: "Switch to light mode",
+      themeStorageBlocked:
+        "Theme changed for this visit. Your browser blocked saving the preference.",
       heroImageAlt: "Bhavanisagar Dam surrounded by turquoise water and green countryside in Erode",
       languageStorageBlocked:
         "Language changed for this visit. Your browser blocked saving the preference.",
@@ -622,6 +626,10 @@
       closeNavigation: "வழிசெலுத்தலை மூடு",
       navigationLabel: "முதன்மை வழிசெலுத்தல்",
       homeLabel: "ஈரோடு முகப்பு",
+      switchToDark: "இருள் பயன்முறைக்கு மாற்று",
+      switchToLight: "ஒளி பயன்முறைக்கு மாற்று",
+      themeStorageBlocked:
+        "இந்த வருகைக்கான தோற்றம் மாற்றப்பட்டது. உங்கள் உலாவி விருப்பத்தைச் சேமிக்கவில்லை.",
       heroImageAlt:
         "ஈரோட்டின் பசுமையான கிராமப்புறங்களுக்கு நடுவே நீலப்பச்சை நீரால் சூழப்பட்ட பவானிசாகர் அணை",
       languageStorageBlocked:
@@ -774,6 +782,9 @@
       closeNavigation: "നാവിഗേഷൻ അടയ്ക്കുക",
       navigationLabel: "പ്രധാന നാവിഗേഷൻ",
       homeLabel: "ഈറോഡ് ഹോം",
+      switchToDark: "ഡാർക്ക് മോഡിലേക്ക് മാറ്റുക",
+      switchToLight: "ലൈറ്റ് മോഡിലേക്ക് മാറ്റുക",
+      themeStorageBlocked: "ഈ സന്ദർശനത്തിനായി തീം മാറ്റി. നിങ്ങളുടെ ബ്രൗസർ മുൻഗണന സൂക്ഷിച്ചില്ല.",
       heroImageAlt:
         "ഈറോഡിലെ പച്ചപ്പാർന്ന ഗ്രാമപ്രദേശങ്ങൾക്കിടയിൽ നീലച്ചായമുള്ള വെള്ളത്താൽ ചുറ്റപ്പെട്ട ഭവാനിസാഗർ അണക്കെട്ട്",
       languageStorageBlocked:
@@ -928,6 +939,9 @@
       closeNavigation: "नेविगेशन बंद करें",
       navigationLabel: "मुख्य नेविगेशन",
       homeLabel: "इरोड होम",
+      switchToDark: "डार्क मोड चालू करें",
+      switchToLight: "लाइट मोड चालू करें",
+      themeStorageBlocked: "इस बार के लिए थीम बदल दी गई। आपका ब्राउज़र पसंद सहेज नहीं सका।",
       heroImageAlt: "इरोड के हरे-भरे ग्रामीण इलाके के बीच फ़िरोज़ी पानी से घिरा भवानीसागर बाँध",
       languageStorageBlocked: "इस बार के लिए भाषा बदल दी गई। आपका ब्राउज़र पसंद सहेज नहीं सका।",
       savePlaceAria: "{{name}} को पसंदीदा में सहेजें",
