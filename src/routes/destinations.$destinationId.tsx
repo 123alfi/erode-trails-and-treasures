@@ -20,14 +20,31 @@ function DestinationError({ error }: ErrorComponentProps) {
 
 export const Route = createFileRoute("/destinations/$destinationId")({
   loader: async ({ params }) => {
-    const destinations = await getPublicDestinations();
+    let destinations: Awaited<ReturnType<typeof getPublicDestinations>>;
+    try {
+      destinations = await getPublicDestinations();
+    } catch (error) {
+      console.error("Erode destination catalogue connection failed:", error);
+      return {
+        destinationId: params.destinationId,
+        destination: null,
+        destinations: null,
+        catalogueUnavailable: true,
+      };
+    }
+
     const destination = destinations.find((place) => place.id === params.destinationId);
     if (!destination) throw notFound();
-    return { destination, destinations };
+    return {
+      destinationId: destination.id,
+      destination,
+      destinations,
+      catalogueUnavailable: false,
+    };
   },
   head: ({ loaderData }) => {
-    const name = loaderData?.destination.name ?? "Erode destination";
-    const description = loaderData?.destination.description ?? "Explore a destination in Erode, Tamil Nadu.";
+    const name = loaderData?.destination?.name ?? "Erode destination";
+    const description = loaderData?.destination?.description ?? "Explore a destination in Erode, Tamil Nadu.";
     return {
       meta: [
         { title: `${name} | Erode Explore` },
@@ -55,7 +72,7 @@ export const Route = createFileRoute("/destinations/$destinationId")({
 });
 
 function DestinationPage() {
-  const { destination, destinations } = Route.useLoaderData();
+  const { destination, destinationId, destinations, catalogueUnavailable } = Route.useLoaderData();
   const frameRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -63,7 +80,11 @@ function DestinationPage() {
     if (!frame) return;
     let disposed = false;
     const sendCatalogue = () => {
-      if (!disposed) frame.contentWindow?.postMessage({ type: "erode:destinations", destinations }, window.location.origin);
+      if (disposed) return;
+      const message = catalogueUnavailable
+        ? { type: "erode:destinations-error" }
+        : { type: "erode:destinations", destinations };
+      frame.contentWindow?.postMessage(message, window.location.origin);
     };
     frame.addEventListener("load", sendCatalogue);
     if (frame.contentDocument?.readyState === "complete") void sendCatalogue();
@@ -71,16 +92,16 @@ function DestinationPage() {
       disposed = true;
       frame.removeEventListener("load", sendCatalogue);
     };
-  }, [destinations, destination.id]);
+  }, [catalogueUnavailable, destinations]);
 
   return (
     <iframe
-      key={destination.id}
+      key={destinationId}
       ref={frameRef}
-      title={`${destination.name} destination details`}
-      src={`/erode/index.html?destination=${encodeURIComponent(destination.id)}`}
+      title={`${destination?.name ?? "Erode"} destination details`}
+      src={`/erode/index.html?destination=${encodeURIComponent(destinationId)}`}
       className="block h-dvh w-full border-0"
-      aria-label={`${destination.name} destination details`}
+      aria-label={`${destination?.name ?? "Erode"} destination details`}
     />
   );
 }
