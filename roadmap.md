@@ -1,5 +1,5 @@
 # Erode Explore
-- [ ] Download all photos into public/erode/images/ and point the website (hosted, standalone and local runs) at the local folder instead of the CDN.
+- [x] Download all photos into public/erode/images/ and point the website (hosted, standalone and local runs) at the local folder instead of the CDN.
 - [x] Refresh the design: warm heritage palette (cream #FAF3E8, terracotta #C2603A, turmeric #E8A33D, brown #2B1D14), bento sections, scroll reveals, animated hero, counting stats and micro-interactions; rebuild the standalone download to match.
 - [x] Add one reusable destination details page for all 20 places, using the live Supabase catalogue and existing visual style.
 - [x] Inspect connected Supabase schema and access rules.
