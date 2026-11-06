@@ -915,54 +915,6 @@ html.erode-intro-active .intro-splash {
 .search-form .btn {
   padding: 11px 22px;
 }
-.hero-chips {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 19px;
-  width: min(750px, 100%);
-}
-.hero-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 9px;
-  min-width: 0;
-  width: 100%;
-  background: rgba(247, 241, 227, 0.12);
-  border: 1px solid rgba(225, 213, 181, 0.62);
-  backdrop-filter: blur(6px);
-  color: #fbf8f0;
-  padding: 10px 17px;
-  border-radius: 999px;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    background 0.3s,
-    border-color 0.3s,
-    transform 0.3s;
-}
-.hero-chip:hover,
-.hero-chip:focus-visible {
-  background: var(--nav-hover);
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-.hero-chip .icon {
-  width: 20px;
-  height: 20px;
-  color: #e5d8b5;
-}
-.hero-chip.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #354234;
-}
-.hero-chip.active .icon {
-  color: #354234;
-}
 @keyframes float {
   0%,
   100% {
@@ -2230,10 +2182,6 @@ body.hotel-view .menu-toggle {
   .search-form .btn {
     padding: 11px 14px;
   }
-  .hero-chips {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 620px;
-  }
   .intro {
     flex-direction: column;
     align-items: flex-start;
@@ -2471,21 +2419,6 @@ body.hotel-view .menu-toggle {
   .guide-item:first-child,
   .guide-item:last-child {
     grid-column: span 1;
-  }
-  .hero-chips {
-    gap: 8px;
-    margin-top: 17px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .hero-chip {
-    min-width: 0;
-    justify-content: flex-start;
-    padding: 8px 11px;
-    font-size: 11px;
-  }
-  .hero-chip .icon {
-    width: 17px;
-    height: 17px;
   }
   .search-form input {
     font-size: 11px;
