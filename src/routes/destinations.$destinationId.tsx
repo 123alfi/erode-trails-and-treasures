@@ -8,9 +8,14 @@ function DestinationError({ error }: ErrorComponentProps) {
       <div className="mx-auto max-w-lg text-center">
         <h1 className="text-3xl font-semibold">This place could not be loaded</h1>
         <p className="mt-3 text-muted-foreground">
-          {error instanceof Error ? error.message : "Destination information is temporarily unavailable."}
+          {error instanceof Error
+            ? error.message
+            : "Destination information is temporarily unavailable."}
         </p>
-        <Link to="/" className="mt-6 inline-flex rounded-sm bg-primary px-4 py-2 text-primary-foreground">
+        <Link
+          to="/"
+          className="mt-6 inline-flex rounded-sm bg-primary px-4 py-2 text-primary-foreground"
+        >
           Back to Erode Explore
         </Link>
       </div>
@@ -44,7 +49,8 @@ export const Route = createFileRoute("/destinations/$destinationId")({
   },
   head: ({ loaderData }) => {
     const name = loaderData?.destination?.name ?? "Erode destination";
-    const description = loaderData?.destination?.description ?? "Explore a destination in Erode, Tamil Nadu.";
+    const description =
+      loaderData?.destination?.description ?? "Explore a destination in Erode, Tamil Nadu.";
     return {
       meta: [
         { title: `${name} | Erode Explore` },
@@ -62,8 +68,13 @@ export const Route = createFileRoute("/destinations/$destinationId")({
     <main className="min-h-screen bg-background px-6 py-16 text-foreground">
       <div className="mx-auto max-w-lg text-center">
         <h1 className="text-3xl font-semibold">Destination not found</h1>
-        <p className="mt-3 text-muted-foreground">This place is not in the Erode Explore catalogue.</p>
-        <Link to="/" className="mt-6 inline-flex rounded-sm bg-primary px-4 py-2 text-primary-foreground">
+        <p className="mt-3 text-muted-foreground">
+          This place is not in the Erode Explore catalogue.
+        </p>
+        <Link
+          to="/"
+          className="mt-6 inline-flex rounded-sm bg-primary px-4 py-2 text-primary-foreground"
+        >
           Browse destinations
         </Link>
       </div>

@@ -79,7 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Erode Explore" },
-      { name: "description", content: "An independent guide to Erode’s landscapes, temples and cultural heritage." },
+      {
+        name: "description",
+        content: "An independent guide to Erode’s landscapes, temples and cultural heritage.",
+      },
       { property: "og:title", content: "Erode Explore" },
       { property: "og:description", content: "Discover the beauty of Erode, Tamil Nadu." },
       { property: "og:type", content: "website" },
