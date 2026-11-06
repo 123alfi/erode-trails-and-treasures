@@ -47,7 +47,7 @@ describe("Erode destination rules", () => {
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
   });
 
-  it("renders the same six ordered category shortcuts and filters", () => {
+  it("keeps all category filters in the destinations section without hero shortcuts", () => {
     start();
     const expected = [
       "All Places",
@@ -57,28 +57,17 @@ describe("Erode destination rules", () => {
       "Heritage & Culture",
       "Stay & Hotels",
     ];
-    const heroButtons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>("#hero-categories button"),
-    );
     const filterButtons = Array.from(
       document.querySelectorAll<HTMLButtonElement>("#filters button"),
     );
 
-    expect(heroButtons.map((button) => button.dataset["filterCategory"])).toEqual(expected);
+    expect(document.getElementById("hero-categories")).toBeNull();
     expect(filterButtons.map((button) => button.dataset["filter"])).toEqual(expected);
-    expect(heroButtons.map((button) => button.querySelector("svg")?.innerHTML)).toEqual(
-      filterButtons.map((button) => button.querySelector("svg")?.innerHTML),
-    );
 
-    heroButtons.at(-1)?.click();
+    filterButtons.at(-1)?.click();
     expect(document.querySelectorAll(".hotel-card")).toHaveLength(5);
     expect(
       document.querySelector('[data-filter="Stay & Hotels"]')?.getAttribute("aria-pressed"),
-    ).toBe("true");
-    expect(
-      document
-        .querySelector('[data-filter-category="Stay & Hotels"]')
-        ?.getAttribute("aria-pressed"),
     ).toBe("true");
   });
 

@@ -488,7 +488,6 @@
     toastTimer;
   const grid = document.getElementById("destination-grid"),
     filters = document.getElementById("filters"),
-    heroCategories = document.getElementById("hero-categories"),
     dialog = document.getElementById("destination-dialog"),
     searchInput = document.getElementById("search-input");
   const destinationPage = document.getElementById("destination-page"),
@@ -500,7 +499,7 @@
       document.documentElement.classList.remove("erode-intro-active");
       window.setTimeout(() => introSplash?.setAttribute("hidden", ""), 500);
     }, 2550);
-  if (!grid || !filters || !heroCategories || !dialog || !searchInput || !destinationPage) return;
+  if (!grid || !filters || !dialog || !searchInput || !destinationPage) return;
   const hero = document.getElementById("hero-image");
   if (hero) hero.src = heroImage;
   document.querySelectorAll("img").forEach((img) =>
@@ -582,11 +581,6 @@
     return translations.ui[language].categories[name] || name;
   }
   function renderCategoryButtons() {
-    const buttons = CATEGORY_CONFIG.map(
-      ({ name, icon: iconName }) =>
-        `<button class="hero-chip ${category === name ? "active" : ""}" type="button" data-filter-category="${escapeHTML(name)}" aria-pressed="${category === name}">${icon(iconName)}<span>${escapeHTML(categoryLabel(name))}</span></button>`,
-    ).join("");
-    heroCategories.innerHTML = buttons;
     filters.innerHTML = CATEGORY_CONFIG.map(
       ({ name, icon: iconName }) =>
         `<button class="filter ${category === name ? "active" : ""}" type="button" data-filter="${escapeHTML(name)}" aria-pressed="${category === name}">${icon(iconName)}<span>${escapeHTML(categoryLabel(name))}</span></button>`,
