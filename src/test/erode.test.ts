@@ -1,11 +1,14 @@
 import { readFileSync } from "node:fs";
+import { runInNewContext } from "node:vm";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const html = readFileSync("public/erode/index.html", "utf8");
 const translationScript = readFileSync("public/erode/translations.js", "utf8");
 const hotelScript = readFileSync("public/erode/hotels.js", "utf8");
 const script = readFileSync("public/erode/script.js", "utf8");
-const seed = JSON.parse(script.match(/let destinations = (\[[\s\S]*?\]);/)?.[1] ?? "[]");
+type SeedDestination = { id: string; mapQuery: string; category: string };
+const seed = runInNewContext(script.match(/let destinations = (\[[\s\S]*?\]);/)?.[1] ?? "[]") as
+  SeedDestination[];
 
 function deliver(
   rows: unknown,
@@ -162,7 +165,9 @@ describe("Erode destination rules", () => {
     language.dispatchEvent(new Event("change"));
 
     expect(document.documentElement.lang).toBe("ta");
-    expect(document.getElementById("language-select")?.value).toBe("ta");
+    expect((document.getElementById("language-select") as HTMLSelectElement | null)?.value).toBe(
+      "ta",
+    );
     expect(document.querySelector(".nav-links a")?.textContent).toBe("முகப்பு");
     expect(localStorage.getItem("erode-explore-language-v1")).toBe("ta");
 
@@ -201,7 +206,7 @@ describe("Erode destination rules", () => {
       ["ml", "ഡാർക്ക് മോഡിലേക്ക് മാറ്റുക"],
       ["hi", "डार्क मोड चालू करें"],
       ["en", "Switch to dark mode"],
-    ]) {
+    ] as const) {
       language.value = code;
       language.dispatchEvent(new Event("change"));
       expect(toggle.getAttribute("aria-label")).toBe(label);
@@ -223,7 +228,7 @@ describe("Erode destination rules", () => {
       ["ta", "கொடிவேரி அணை", "கோவில்கள்"],
       ["ml", "കൊടിവേരി അണക്കെട്ട്", "ക്ഷേത്രങ്ങൾ"],
       ["hi", "कोडिवेरी बाँध", "मंदिर"],
-    ]) {
+    ] as const) {
       language.value = code;
       language.dispatchEvent(new Event("change"));
       expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
