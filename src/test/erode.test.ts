@@ -6,9 +6,20 @@ const html = readFileSync("public/erode/index.html", "utf8");
 const translationScript = readFileSync("public/erode/translations.js", "utf8");
 const hotelScript = readFileSync("public/erode/hotels.js", "utf8");
 const script = readFileSync("public/erode/script.js", "utf8");
-type SeedDestination = { id: string; mapQuery: string; category: string };
+type SeedDestination = {
+  id: string;
+  name: string;
+  location: string;
+  mapQuery: string;
+  category: string;
+};
 const seed = runInNewContext(script.match(/let destinations = (\[[\s\S]*?\]);/)?.[1] ?? "[]") as
   SeedDestination[];
+function firstSeed(): SeedDestination {
+  const first = seed.at(0);
+  if (!first) throw new Error("Expected the Erode fallback catalogue to include destinations.");
+  return first;
+}
 
 function deliver(
   rows: unknown,
@@ -300,7 +311,7 @@ describe("Erode destination rules", () => {
       document
         .querySelector('#dialog-content a[href^="https://www.google.com/maps/dir/"]')
         ?.getAttribute("href"),
-    ).toContain(encodeURIComponent(seed[0].mapQuery));
+    ).toContain(encodeURIComponent(firstSeed().mapQuery));
   });
 
   it("preserves a saved favourite and active search when hosted data arrives", () => {
@@ -332,7 +343,7 @@ describe("Erode destination rules", () => {
 
   it("keeps the fallback catalogue when remote rows contain duplicate IDs", () => {
     start();
-    deliver([seed[0], seed[0]]);
+    deliver([firstSeed(), firstSeed()]);
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
     expect(document.body.dataset["catalogueSource"]).toBe("fallback");
@@ -340,7 +351,7 @@ describe("Erode destination rules", () => {
 
   it("rejects executable links in destination data", () => {
     start();
-    deliver([{ ...seed[0], source: "javascript:alert(1)" }]);
+    deliver([{ ...firstSeed(), source: "javascript:alert(1)" }]);
     document.getElementById("view-all")?.click();
     expect(document.querySelectorAll(".destination-card")).toHaveLength(20);
     expect(document.body.dataset["catalogueSource"]).toBe("fallback");
